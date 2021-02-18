@@ -7,10 +7,10 @@ var DEMO_SPRITE = (function() {
     description: '<p>Sprites courtesy of https://franuka.itch.io/rpg-townsfolk-pack</p>',
     
     stage: function() {
-      spriteForward = textureLoader.load('/assets/forward.png');
-      spriteLeft = textureLoader.load('/assets/left.png');
-      spriteBack = textureLoader.load('/assets/backward.png');
-      spriteRight = textureLoader.load('/assets/right.png');
+      spriteForward = textureLoader.load('assets/forward.png');
+      spriteLeft = textureLoader.load('assets/left.png');
+      spriteBack = textureLoader.load('assets/backward.png');
+      spriteRight = textureLoader.load('assets/right.png');
 
       var makeSprite = function(x, y, z) {
         var material = new THREE.SpriteMaterial({ map: spriteForward });
