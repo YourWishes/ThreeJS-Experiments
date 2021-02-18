@@ -1,8 +1,10 @@
 // Setup the globals
 var scene, camera, renderer, controls, gridHelper, width, height, lastFrame, demo;
+var textureLoader, objLoader;
 
 var DEMOS = [
-  DEMO_MAIN
+  DEMO_MAIN,
+  DEMO_SPRITE,
 ];
 
 // Get HTML Elements
@@ -10,6 +12,8 @@ var view = document.querySelector('.view');
 var canvas = document.querySelector('.view-canvas');
 var stats = document.querySelector('.stats');
 var demos = document.querySelector('.demo');
+var title = document.querySelector('.title');
+var description = document.querySelector('.description');
 
 // Create the initial scene, camera and renderer.
 scene = new THREE.Scene();
@@ -20,6 +24,9 @@ camera = new THREE.PerspectiveCamera(54, 16/9, 0.1, 1000);
 camera.position.set(3, 3, 3);
 camera.lookAt(0, 0, 0);
 controls = new THREE.OrbitControls(camera, canvas);
+
+textureLoader = new THREE.TextureLoader();
+objLoader = new THREE.OBJLoader();
 
 renderer = new THREE.WebGLRenderer({ canvas: canvas });
 var frame = function() {
@@ -65,6 +72,12 @@ function setDemo(number) {
   var newDemo = DEMOS[number];
   demo = newDemo;
   demo.stage();
+  title.textContent = demo.name;
+  description.innerHTML = demo.description || '';
+}
+
+function deg2rad(deg) {
+  return deg * Math.PI / 180;
 }
 
 // Begin

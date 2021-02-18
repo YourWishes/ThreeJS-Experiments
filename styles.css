@@ -13,6 +13,7 @@ html,body {
   max-width: 1000px;
   background: white;
   width: 100%;
+  padding: 1rem;
 }
 
 .view {
@@ -20,6 +21,8 @@ html,body {
   width: 100%;
   padding-bottom: 56.25%;
 }
+
+.title { margin: 0; }
 
 .view-canvas {
   position: absolute;
